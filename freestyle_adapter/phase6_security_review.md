@@ -1,0 +1,12 @@
+# PHASE 6K — SECURITY REVIEW (Absolute; No Secret Display)
+- Key: ONLY in .env (gitignored; 67 chars); NEVER in adapter/reports/docs/skills/backup.
+- Key masked in ALL outputs: [REDACTED_67_CHARS] (no value; no substring; no hash; no prefix/suffix).
+- .env content: NEVER displayed (verified by absence in all adapter/report files).
+- .gitignore: .env protected (verified).
+- .env.example: valueless line present (verified).
+- Adapter files clean: grep scan PASS (no leaks in adapter/reports).
+- VM isolation: adapter only passes SDK-required env (not saved to disk; not logged; not transmitted to VM as persistent secret).
+- Network: minimum access (adapter default; no public ports opened automatically).
+- Fail-safe: adapter does not redirect untrusted tasks to LOCAL silently; untrusted tasks stay in adapter/VM or fail safely.
+- Feature flag: false (default preserved; non-mutating).
+- P7F: untouched; core: zero mutation; rollback available.

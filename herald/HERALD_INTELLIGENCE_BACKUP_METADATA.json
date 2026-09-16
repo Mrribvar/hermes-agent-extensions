@@ -1,0 +1,81 @@
+{
+  "checkpoint": "HERALD-INTELLIGENCE-CHECKPOINT-013.5",
+  "date": "2026-08-06",
+  "architecture_version": "1.0.0",
+  "upstream_commit": "d37090ac3",
+  "phase_versions": {
+    "010_pattern_intelligence": {
+      "status": "frozen",
+      "files": ["governance/pattern_context.py"],
+      "tests": ["tests/governance/test_pattern_context.py"]
+    },
+    "011_decision_intelligence": {
+      "status": "frozen",
+      "files": [
+        "governance/decision_store.py",
+        "governance/decision_performance_engine.py",
+        "governance/decision_feedback_loop.py",
+        "governance/decision_memory.py"
+      ],
+      "tests": ["tests/governance/test_decision_feedback_loop.py"]
+    },
+    "012_execution_integration": {
+      "status": "frozen",
+      "files": [
+        "agent/execution/intelligence_integration.py",
+        "agent/execution/interface.py"
+      ],
+      "tests": ["tests/integration/test_agentcore_intelligence_integration.py"]
+    },
+    "013_persistence_layer": {
+      "status": "frozen",
+      "files": [
+        "governance/intelligence_store.py",
+        "governance/intelligence_persistence.py"
+      ],
+      "tests": ["tests/governance/test_intelligence_persistence.py"]
+    }
+  },
+  "file_inventory": {
+    "governance/intelligence_store.py": {"lines": 302, "phase": "013", "status": "frozen"},
+    "governance/intelligence_persistence.py": {"lines": 274, "phase": "013", "status": "frozen"},
+    "governance/decision_performance_engine.py": {"lines": 330, "phase": "011", "status": "frozen"},
+    "governance/decision_store.py": {"lines": 184, "phase": "011", "status": "frozen"},
+    "governance/decision_feedback_loop.py": {"lines": 180, "phase": "011", "status": "frozen"},
+    "governance/decision_memory.py": {"lines": 207, "phase": "011", "status": "frozen"},
+    "governance/dependency_intelligence.py": {"lines": 287, "phase": "pre-010", "status": "existing"},
+    "governance/pattern_context.py": {"lines": 209, "phase": "010", "status": "frozen"},
+    "agent/execution/intelligence_integration.py": {"lines": 220, "phase": "012", "status": "frozen"},
+    "agent/execution/interface.py": {"lines": 399, "phase": "012", "status": "frozen"},
+    "agent/execution/memory.py": {"lines": 374, "phase": "existing", "status": "existing"}
+  },
+  "test_baseline": {
+    "total_passing": 301,
+    "total_failing_known": 4,
+    "known_failures": {
+      "tests/governance/test_experience_feedback.py": {
+        "count": 4,
+        "cause": "Singleton state pollution from persistent ~/.hermes stores",
+        "pre_existing": true
+      }
+    },
+    "test_suites": {
+      "tests/governance/test_intelligence_persistence.py": 33,
+      "tests/governance/test_decision_feedback_loop.py": 13,
+      "tests/governance/test_pattern_context.py": 11,
+      "tests/integration/test_agentcore_intelligence_integration.py": 24,
+      "tests/agent/execution/": 220
+    },
+    "regression_command": "python -m pytest tests/governance/test_intelligence_persistence.py tests/governance/test_decision_feedback_loop.py tests/governance/test_pattern_context.py tests/agent/execution/ tests/integration/test_agentcore_intelligence_integration.py -v --tb=short"
+  },
+  "dependency_issues": {
+    "missing_fastapi": {"blocking": true, "modules": ["tests/dashboard/test_ws_client_host.py"]},
+    "missing_uvicorn": {"blocking": true, "modules": ["tests/dashboard/test_ws_client_host.py"]},
+    "missing_python_dotenv": {"blocking": true, "modules": ["tests/agent/test_codex_app_server_persist.py"]},
+    "missing_acp": {"blocking": true, "modules": ["tests/acp/", "tests/acp_adapter/"]}
+  },
+  "data_files": {
+    "intelligence.json": "~/.hermes/governance/intelligence.json",
+    "decisions.json": "~/.hermes/governance/decisions.json"
+  }
+}

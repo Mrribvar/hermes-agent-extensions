@@ -1,0 +1,12 @@
+# DIAGNOSTIC SUMMARY — Phase 6 (Only Read; No Mutation; No Restart; No Secret Exposure)
+TERMUX HERMES GATEWAY: PASS (python3.11 /hermes gateway run --external-supervisor; PID 23916; running in Termux)
+TERMUX PYTHON/HERMES: PASS (python3.11 process 23916; gateway confirmed)
+FREESTYLE VM (hermes-runtime-test): VM exists (id=vm-4a65a152c4e54052bf6aa7a43da1ba46); state=running; separate from hermes-test-vm
+VM PROCESS DETAILS: PASS (VM ps shows standard Linux init/system processes; NO hermes-gateway / gateway-related python process inside VM)
+HERMES GATEWAY INSIDE VM: NO (confirmed absence in VM process list)
+FREESTYLE VM HERMES GATEWAY: NO (gateway does not run inside VM; only in Termux)
+HERMES RUNTIME LOCATION: TERMUX (gateway process confirmed in Termux; VM has no gateway)
+VM PRESERVED: hermes-test-vm (original preserved); hermes-runtime-test (new VM for runtime test — preserved)
+NO MUTATION: PASS (adapter layer only; core untouched; feature flag false; P7F untouched; no restart; no install beyond SDK; no migration)
+NO SECRET EXPOSURE: PASS (.env protected; adapter/reports clean; masked reference only; no .env content shown; no key value; no secret in VM; adapter-level only)
+FINAL DIAGNOSIS: HERMES IS RUNNING INSIDE FREESTYLE = NO (gateway remains in Termux; VM isolated but no Hermes gateway inside)

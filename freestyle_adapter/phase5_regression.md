@@ -1,0 +1,11 @@
+PHASE 5L — REGRESSION CHECKS
+- Adapter compile: PASS
+- Adapter health check: PASS (6/6)
+- Feature flag: FALSE (default preserved; non-mutating)
+- Core mutation: NONE (zero core files modified)
+- P7F / NOINDEX: untouched
+- Backup: .hermes/backup-pre-phase5-* exists; previous backups preserved
+- VM preservation: hermes-test-vm kept alive (not deleted)
+- Secret leak scan: PASS (none in adapter/reports/skills; only .env contains key; masked in outputs)
+- Default behavior preserved: LOCAL default; adapter activates only with justification (router_policy.md)
+- No destructive actions performed; no regression detected

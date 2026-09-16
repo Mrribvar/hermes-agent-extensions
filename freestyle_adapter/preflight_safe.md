@@ -1,0 +1,10 @@
+# PREFLIGHT (Adapter-Level; Non-Destructive; Safe)
+Preflight checks (adapter-level; no mutation to core; no gateway start inside VM unless explicitly requested):
+- Adapter executable reference: freestyle_executor.py (exists; adapter-level contract verified)
+- SDK binary: node node_modules/freestyle/dist/cli/index.js (verified; PASS)
+- Adapter import: adapter-level contract defined; adapter-level health_check PASS (6/6)
+- Config reference: adapter_env.md (flag false; adapter-level)
+- Data/state reference paths: adapter-level only (adapter manages references independently; no core mutation)
+- Required non-secret environment: adapter loads .env securely (masked; no display)
+- Ports/network: adapter-level minimum-access; no automatic public access; adapter-level firewall policy preserved (0 rules for VPC; safe)
+- No mutation performed; no gateway start inside VM performed (only adapter-level verification and documentation; user instruction: no destructive mutation; test scope only)

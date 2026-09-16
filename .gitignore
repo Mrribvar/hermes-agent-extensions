@@ -1,0 +1,68 @@
+# Secrets — never commit
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+*.p12
+credentials.json
+auth.json
+secrets.yaml
+tokens.json
+
+# VPN / infrastructure artifacts — never commit
+*-vpn-backup*.tar.gz
+golden-hermes-vpn-backup.tar.gz
+*.conf
+wireguard*.conf
+*.ovpn
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+.eggs/
+.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# IDE / editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Local runtime artifacts
+*.db
+*.sqlite
+*.sqlite3
+*.log
+node_modules/
+*.bak
+*.bak.*
+*.backup
+*~
+
+# Personal / private data
+**/memories/
+**/experiences.json
+**/decisions.json
+**/knowledge_graph.json
+**/projects.json
+**/sessions.json
+**/state.db*

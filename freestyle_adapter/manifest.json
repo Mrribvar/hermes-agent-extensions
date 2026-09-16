@@ -1,0 +1,43 @@
+{
+  "adapter": "freestyle_adapter",
+  "sdk_version": "0.2.13",
+  "sdk_install_method": "npm install freestyle --no-save",
+  "docs_fetched": [
+    "onboard.md",
+    "llms.txt"
+  ],
+  "docs_sizes": {
+    "onboard.md": 8772,
+    "llms.txt": 16755
+  },
+  "env_configured": true,
+  "env_gitignored": true,
+  "env_example_has_valueless_line": true,
+  "key_in_env": true,
+  "key_exposed_in_output_or_logs": false,
+  "core_hermes_overwritten": false,
+  "connectivity_test": "PASS (docs/bash responds)",
+  "vm_creation": "NOT ATTEMPTED (requires confirmed auth with real endpoint)",
+  "command_execution_on_vm": "NOT ATTEMPTED",
+  "vm_lifecycle_pause_resume": "NOT ATTEMPTED (pending auth + creation)",
+  "new_files": [
+    ".env (modified with real key — gitignored, not shown in logs)",
+    ".env.example (valueless line present, unchanged from before except verified)",
+    ".gitignore (verified .env entry)",
+    ".hermes/backup-pre-freestyle-20260910_040058/ (full project backup)",
+    ".hermes/skills/freestyle-docs/onboard.md",
+    ".hermes/skills/freestyle-docs/llms.txt",
+    ".hermes/skills/freestyle-docs/SKILL.md",
+    "hermes-agent/freestyle_adapter/adapter.md"
+  ],
+  "modified_existing_files": [
+    ".env (updated with new real key; previous key rotated/replaced)"
+  ],
+  "errors_remaining": [
+    "VM creation not tested (requires successful auth endpoint call — not performed to avoid unnecessary VM spawn)",
+    "npx freestyle@latest binary not found; npm install used instead (equivalent SDK)",
+    "No rollback script generated yet (manual rollback = restore from .hermes/backup-pre-freestyle-*)"
+  ],
+  "rollback_command": "cp -r ~/.hermes/backup-pre-freestyle-20260910_040058/* /path/to/hermes-agent/ ; rm -rf hermes-agent/freestyle_adapter; restore original .env from .env.backup_before_bai if needed",
+  "security_notes": "Key is stored ONLY in .env (gitignored). Not in adapter.md, not in reports, not in backups of adapter files. Masked as [REDACTED_67_CHARS] in all outputs."
+}
