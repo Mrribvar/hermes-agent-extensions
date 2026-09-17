@@ -82,6 +82,11 @@ See [`ARCHITECTURE.md`](ARCHITECTURE.md) for the full diagram (Mermaid) showing
 how the extension layer sits on top of upstream Hermes Agent, and
 [`docs/architecture.md`](docs/architecture.md) for the layer-by-layer walkthrough.
 
+> D3 visual: Persian architecture story of the upstream Hermes
+> `recall_context` orchestrator (Experience + KG + Archive → user-message
+> injection, 9:16, dark/technical) —
+> [`docs/architecture/d3-recall-orchestrator-story-fa.png`](docs/architecture/d3-recall-orchestrator-story-fa.png).
+
 Short version:
 
 ```
